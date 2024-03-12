@@ -1,16 +1,16 @@
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
+import css from "./ContactForm.module.css";
+import { RiContactsFill } from "react-icons/ri";
+import { BsFillTelephoneFill } from "react-icons/bs";
 
 const formSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too short!")
     .max(50, "Too long!")
     .required("Required!"),
-  number: Yup.number()
-    .min(3, "Too short!")
-    .max(50, "Too long!")
-    .required("Required!"),
+  number: Yup.number().required("Required!"),
 });
 
 const INITIAL_FORM_DATA = {
@@ -30,18 +30,31 @@ const ContactForm = ({ onAdd }) => {
       initialValues={INITIAL_FORM_DATA}
       onSubmit={handleSubmit}
     >
-      <Form>
-        <label>
-          <Field type="text" name="name" placeholder="Oleksii Koval" />
+      <Form className={css.form}>
+        <label className={css.label}>
+          <RiContactsFill className={css.icon} />
+          <Field
+            className={css.field}
+            type="text"
+            name="name"
+            placeholder="Oleksii Koval"
+          />
           <ErrorMessage name="name" component="span" />
         </label>
-        <label>
-          <Field type="tel" name="number" placeholder="48696647625" />
+        <label className={css.label}>
+          <BsFillTelephoneFill className={css.icon} />
+          <Field
+            className={css.field}
+            type="tel"
+            name="number"
+            placeholder="48696647625"
+          />
           <ErrorMessage name="number" component="span" />
         </label>
-        <label>
-          <button type="submit">Add contact</button>
-        </label>
+
+        <button className={css.btn} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );

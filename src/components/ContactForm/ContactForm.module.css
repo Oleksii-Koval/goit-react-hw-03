@@ -1,0 +1,26 @@
+.label {
+  padding: 20px 15px;
+}
+
+.field {
+  padding: 10px 8px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+  color: blue;
+}
+
+.btn {
+  background-color: transparent;
+  outline: none;
+  font-weight: 500;
+  border: 2px solid blue;
+  border-radius: 20px;
+  cursor: pointer;
+  padding: 10px;
+}
